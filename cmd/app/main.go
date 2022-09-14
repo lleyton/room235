@@ -1,3 +1,9 @@
+// Welcome mortal.
+// This codebase was intentionally thrown together as a mess, with disregard to code quality.
+// There are vulnerbilities *intentionally* left in for the students of room 235 to discover. We made this for an educational setting (to provide a small amount of utility and learning), hence what I stated before. 
+// If you were thinking of using this as a reference for any sort of production code, don't. *This is only supposted to be run in a trusted, private enviroment.*
+// You have been warned... have fun learning, child.
+
 package main
 
 import (
