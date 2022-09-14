@@ -7,7 +7,7 @@
       <li>IP: {{ .IP }}</li>
       {{if .Domain}}
       <li>
-        Current Name: <a href="http://{{ .Domain }}.lan">{{ .Domain }}.lan</a>
+        Current Name: <a href="http://{{ .Domain }}.lab">{{ .Domain }}.lab</a>
       </li>
       {{end}}
     </ul>
@@ -43,7 +43,7 @@
         {{ range $index, $host := .Hosts }}
         <tr>
           <td>
-            <a href="http://{{ $host.Name }}.lan">{{ $host.Name }}.lan</a>
+            <a href="http://{{ $host.Name }}.lab">{{ $host.Name }}.lab</a>
           </td>
           <td>{{ $host.IP }}</td>
         </tr>

@@ -36,7 +36,7 @@ func (resolver *Resolver) parseQuery(ctx context.Context, m *dns.Msg) {
 		switch q.Qtype {
 		case dns.TypeA:
 			log.Printf("Query for %s\n", q.Name)
-			domain, err := resolver.queries.GetDomainByName(ctx, strings.TrimSuffix(q.Name, ".lan."))
+			domain, err := resolver.queries.GetDomainByName(ctx, strings.TrimSuffix(q.Name, ".lab."))
 			if err != nil {
 				continue
 			}
@@ -83,7 +83,7 @@ func (resolver *Resolver) Serve() error {
 	dns.HandleFunc("lan.", resolver.handleDnsRequest)
 	dns.HandleFunc(".", resolver.resolveUpstream)
 
-	port := 5353
+	port := 5354
 	server := &dns.Server{Addr: ":" + strconv.Itoa(port), Net: "udp"}
 	log.Printf("Starting at %d\n", port)
 	err := server.ListenAndServe()
