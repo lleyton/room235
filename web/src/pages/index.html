@@ -1,16 +1,55 @@
 {{ define "content" }}
 <div class="container">
+  {{ partial "navbar" . }}
   <section>
-    <div class="terminal-nav">
-      <div class="logo terminal-prompt">
-        <a href="#" class="no-style">Room 235</a>
-      </div>
-      <nav class="terminal-menu">
-        <ul>
-          <li><a class="menu-item active" href="#">Home</a></li>
-        </ul>
-      </nav>
+    <h1>Your Information</h1>
+    <ul>
+      <li>IP: {{ .IP }}</li>
+      {{if .Domain}}
+      <li>
+        Current Name: <a href="http://{{ .Domain }}.lan">{{ .Domain }}.lan</a>
+      </li>
+      {{end}}
+    </ul>
+    <div class="btn-group">
+      <a class="btn btn-primary btn-ghost" href="/register-domain"
+        >Register Domain</a
+      >
+      {{if .Domain}}
+      <a class="btn btn-error btn-ghost" href="/remove-domain">
+        Remove Domain
+      </a>
+      {{end}}
+      <a
+        class="btn btn-error btn-ghost"
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ?autoplay=1"
+        >Blow up the planet</a
+      >
     </div>
+  </section>
+  <section>
+    <h1>Network Information</h1>
+    <table>
+      <caption>
+        Current Hosts
+      </caption>
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>IP</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $index, $host := .Hosts }}
+        <tr>
+          <td>
+            <a href="http://{{ $host.Name }}.lan">{{ $host.Name }}.lan</a>
+          </td>
+          <td>{{ $host.IP }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
   </section>
 </div>
 {{ end }}

@@ -55,9 +55,13 @@ func InitServer(copperApp *copper.App) (*chttp.Server, error) {
 		return nil, err
 	}
 	readerWriter := chttp.NewReaderWriter(htmlRenderer, chttpConfig, logger)
+	querier := csql.NewQuerier(db, config)
+	queries := app.NewQueries(querier)
 	newRouterParams := app.NewRouterParams{
-		RW:     readerWriter,
-		Logger: logger,
+		RW:      readerWriter,
+		Logger:  logger,
+		Queries: queries,
+		Db:      db,
 	}
 	router := app.NewRouter(newRouterParams)
 	newHTMLRouterParams := chttp.NewHTMLRouterParams{
