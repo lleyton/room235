@@ -1,0 +1,8 @@
+[chttp]
+port=5901
+
+		
+[csql]
+dialect="sqlite3"
+dsn="./room235.db"
+max_open_connections=1
