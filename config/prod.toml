@@ -1,1 +1,4 @@
 extends="base.toml"
+
+[csql]
+dsn="./data/room235.db"

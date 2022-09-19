@@ -8,7 +8,7 @@ services:
       - "53:5354"
       - "80:5901"
     volumes:
-      - database:room235.db
+      - data:/app/data
 
 volumes:
-  database:
+  data:

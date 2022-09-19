@@ -7,6 +7,6 @@ WORKDIR /app
 COPY . .
 
 RUN go install github.com/gocopper/cli/cmd/copper@latest
-RUN copper build
+RUN --mount=type=cache,target=/root/.cache/go-build copper build
 
-CMD ["/bin/sh", "-c", "/app/build/migrate.out && /app/build/app.out"]
+CMD ["/bin/sh", "-c", "/app/build/migrate.out --config ./config/prod.toml && /app/build/app.out  --config ./config/prod.toml"]
