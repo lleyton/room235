@@ -2,7 +2,7 @@ version: "2"
 
 services:
   main:
-    restart: on-failure
+    restart: always
     build: .
     ports:
       - "53:5354"
