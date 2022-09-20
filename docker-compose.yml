@@ -5,7 +5,7 @@ services:
     restart: always
     build: .
     ports:
-      - "53:5354"
+      - "8080:5354"
       - "80:5901"
     volumes:
       - data:/app/data
